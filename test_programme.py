@@ -455,7 +455,7 @@ print (food)
 
 
 
-#                                            2D lists  1:27/12:00 (a list of list )
+#                                            2D lists  1:27/12:00 (a list of list ) []
 
 
 
@@ -480,7 +480,7 @@ print (food [0][2]) # prints coffey
 
 
 
-#                                                           tuples 
+#                                                           tuples  ()
 #                             collection which is ordered and unchangable used to group together related data 
 
 
@@ -504,7 +504,7 @@ else :
 
 
 
-#                                                           set
+#                                                           set {}
 #                               collection which is unordered, unindexed. No duplicate value  
 
 
@@ -512,7 +512,7 @@ else :
 
 '''
 import time                         # just included to check sets operations with suitable delay 
-print ()                        # to seperate two sets 
+print ()                            # to seperate two sets 
 print ()
 
 
@@ -590,7 +590,7 @@ print ()                                # to seperate two sets
 
 
 
-#                                                   DICTONARY 
+#                                                   DICTONARY () []
 #                            a changable, unorderd collection of unique KEY:VALUE pairs 
 #                         fast because they used hashing allows us to acces a value quickly 
 
@@ -599,7 +599,7 @@ print ()                                # to seperate two sets
 
 # let's create a dictonary of capitals and countries 
 
-
+'''
 capitals = {"INDIA":"NEW DELHI",
  "USA":"WASHINGTON DC",
  "CHINA":"BELGING",
@@ -614,7 +614,8 @@ print ()                                # to seperate two sets
 print ("capital of INDIA: ",capitals['INDIA'])                       #to directly get value pair 
 print  (capitals.get("germany"))                # by using ths method  we can avoid syntax error in case item is no fount in the set
 capitals.pop('CHINA')                           # to remove china from the list 
-capitals.update({"USA":"LOS ANGELS"})           #updating/ altering the dictonary
+capitals.update({"USA":"LOS ANGELS"})           # updating/ altering the dictonary
+capitals.update({'GERMANY':'MOSCOW'})           # added a new value to the list 
 
 print ()                                # to seperate two sets 
 print ()                                # to seperate two sets 
@@ -627,6 +628,157 @@ print ()                                # to seperate two sets
 print ()                                # to seperate two sets 
 
 
-
+capitals.clear()                        # clear out the dictonary 
 for key,value in capitals.items():
     print (key,value)
+'''
+
+
+
+
+#                                                           index operator  []
+#                                                           give access to  a sequence of elements (str, list, tuples)
+
+
+'''
+print ()                                # to provide space  
+
+name = "ravi varma"
+if (name[0].islower()):                 # to check an element(first letter in here) of the string is lowercase 
+    name = name.capitalize()
+
+print ()                                # to provide space  
+
+print (name)
+print ()                                #to provide space 
+
+first_name = name[:4].upper()           # make it as uppercase letters 
+last_name = name[5:].lower()            # make it as lowercase letters 
+
+last_charactor = name[-1]               # to access last element using negative indexing 
+print (first_name, last_name)
+'''
+
+
+
+# ---------------------------------------------------------------funcions 
+#                                                    a block of a code, execuits when it is called.
+'''
+
+
+def name_of_function():
+    body of the function
+
+
+
+#                                                       function definition
+from re import L
+from sqlite3 import DatabaseError
+from tokenize import group
+
+
+
+def hello():
+    print( "hello ! BRO" )
+
+#                                 to                    function calling 
+hello ()
+
+
+# to                                                    passing arguments 
+
+
+def wish(data1):                                       # acceps input from calling function
+    print("hello",data1)
+
+
+def space():
+    print()                                            #to provide space b/w two o/p datas 
+    print()
+
+
+
+
+wish("manu")                                           # passing a string value 
+name = input("what was your name?: ")
+space ()
+wish(name)
+
+
+
+
+
+
+
+
+def data_base(f_name,last_name=None,age = 28,group= "EC"):                         # passing multiple arguments, and predefning some arguments 
+    print(f_name,last_name,age,group)
+    print()
+
+
+
+
+
+
+
+
+
+first_name = input("enter your first name: ")                  
+last_name  = input("enter your last name: ")
+age        = input("enter your age: ")
+group      = input("enter your group: ")
+
+data_base(first_name, last_name, age, group)                    # accepts multiple arguments 
+data_base(first_name, last_name)                                # only passing two arguments 
+'''
+
+
+
+
+
+
+
+
+#                                                              return statements in functions 
+#                                           functions send back values/objects back to the caller 
+#                                           These values/obijects are known as the functions return value 
+
+
+
+
+# a function to multiply two numbers are return the result to the caller 
+
+
+
+'''
+def multiply(a,b):
+    print()                                                    # to provide space in b/w
+    return(a*b)
+
+
+
+a = int(input("enter the first_number : "))
+b = int(input("enter the second_number : "))
+
+product = multiply(a,b)                                       # storing the result on a varaiable
+print ("the product of given numbers are : "+ str(multiply(a,b)))                                         # directly printing the result 
+print ("the product of "+str(a)+" * "+str(b)+" = "+str(product))
+'''
+
+
+
+
+
+#                                  ----------------------------------------------key word arguments ----------------------------------------------
+#                                                       arguments preceded by an identifier when we pass them to a function, 
+#                                                      The order of the arguments doesn't matter, unlike positional arguments. 
+#                                                        Python knows the names of the argumnts that our function receives
+
+
+# typical example for the positional arguments are
+
+def hello(f_name,m_name,l_name):
+    print("hello "+f_name+" "+m_name+" "+l_name)
+
+hello("hello","ravi","varma")
+hello("varma","hello","ravi")
