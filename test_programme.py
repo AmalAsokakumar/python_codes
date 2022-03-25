@@ -616,6 +616,8 @@ print  (capitals.get("germany"))                # by using ths method  we can av
 capitals.pop('CHINA')                           # to remove china from the list 
 capitals.update({"USA":"LOS ANGELS"})           # updating/ altering the dictonary
 capitals.update({'GERMANY':'MOSCOW'})           # added a new value to the list 
+capitals.key()                                  # to list all keys 
+capitals.value()                                # to list all values
 
 print ()                                # to seperate two sets 
 print ()                                # to seperate two sets 
@@ -661,7 +663,7 @@ print (first_name, last_name)
 
 
 
-# ---------------------------------------------------------------funcions 
+# ---------------------------------------------------------------funcions----------------------------------------------------
 #                                                    a block of a code, execuits when it is called.
 '''
 
@@ -769,16 +771,466 @@ print ("the product of "+str(a)+" * "+str(b)+" = "+str(product))
 
 
 
+
+
+
+
 #                                  ----------------------------------------------key word arguments ----------------------------------------------
 #                                                       arguments preceded by an identifier when we pass them to a function, 
 #                                                      The order of the arguments doesn't matter, unlike positional arguments. 
 #                                                        Python knows the names of the argumnts that our function receives
 
 
-# typical example for the positional arguments are
+
+
+
+
+
+
+
+#                                        typical example for the positional arguments are
+
+'''
 
 def hello(f_name,m_name,l_name):
     print("hello "+f_name+" "+m_name+" "+l_name)
 
-hello("hello","ravi","varma")
-hello("varma","hello","ravi")
+hello("Raja","ravi","varma")
+hello("varma","Raja","ravi")
+
+
+#                                                           key word arguments
+
+hello(l_name = "varma",f_name = "Raja", m_name = "ravi")    # arguments are disoriented 
+
+hello(m_name = "ravi", l_name = "varma", f_name = "Raja")
+'''
+
+
+
+
+
+
+
+
+
+
+
+# ----------------------------------------------------------------nested function call---------------------------
+#                                                     function calls inside other function calls
+#                                                     inner most function calls are resolved first 
+#                                           returned value is used as arguments for the next outer function 
+
+
+
+
+'''
+
+# heare is a typicl example programme > we can use nested function to resolve this programme 
+
+num = input("enter a whole positive number: ")
+num = float(num) 
+num = abs(num) 
+num = round(num) 
+print (num) 
+
+# neste function example
+
+print (round(abs(float(input("enter a whole positive number: ")))))     # begins @ the innermost layer 
+
+
+'''
+
+
+
+#----------------------------------------------------------------scope of a variable--------------------------
+#                                                    a region that a variable is recognised
+#                                       a varaiable is only available from inside the region it is created.
+#                                       a global and locally scoped version of a variable can be created 
+
+
+'''
+def display_name():
+    name = "test"                               # scope of the the variable is local, it is recognised only inside a function, local variable 
+    print (name)
+
+# uncomment the following 
+# print (name)                                    # error the variable is not declared locally
+
+
+
+
+
+variable = "name "  # this is a global variable which can be accessed through out the workspace, having global scope, it can also be accessed insida a function
+
+
+
+
+def display_test():
+    #print(variable)                             # globally declared version
+    variable = "new variable"                   # locally declared version
+    print (variable)                            # printing locally declared version
+
+
+print (variable) # printing                     # printing the variable outside the function, to check whether it has been changed.
+
+display_name()
+display_test()
+
+
+
+# this is how python consider variables to be variables
+
+
+# L > local variable
+# E > enclosing variable
+# G > global variable
+# B > built-in variable
+
+
+'''
+
+
+
+
+
+
+
+
+
+
+# ----------------------------------------------------------------                  *args                                  >> tuple     *
+#                                                               parameter that will pack all arguments into a tuple 
+#                                                          useful so that a function can accept a varying amount of arguments 
+
+
+
+
+
+'''
+#                                                       simple programm to add a definite number or fewer number of arguments 
+
+def add(n1,n2):
+    return(n1+n2)
+
+print (add(1,2))
+
+'''
+
+
+
+
+
+#                                                                   if have more a number of arguments/parameters, then 
+
+
+
+'''
+def add(*args):                                        #  we are packing the argument in a tuple, they are orderd and unchangeable 
+    sum = 0
+    for i in args:
+        sum += i
+    return(sum)
+
+
+print (add(1,2,3,4,5,6,7,8,9,10,11,12))
+
+
+'''
+'''
+
+def add(*items):                                        # to make changed to tuples data  >  conver it into  list 
+    items = list(items)                                 # tuples are reassigned as a list 
+    items[0]= -70                                       # changing value baised on their index positions 
+    sum = 0
+    for i in items:
+        sum += i
+    return(sum)
+
+print (add(1,2,3,4,5,6,7,8,9,10,11,12))
+
+'''
+
+
+
+
+
+
+
+
+
+
+
+# --------------------------------------------------------------------------   **kwargs    ------------------------------------------------------- >> dictonary   **
+#                                                       parameter that will pack all arguments in to a dictonary 
+#                                               usefull so that a function can accept a varying amount of keyword arguments 
+
+
+
+
+
+
+
+#suppose we create a function that accepts two key word arguments, first name and last name. if some have an additional middle name, then a programme may occure 
+
+
+
+
+
+'''
+def sample_code(first,last):
+    print( first, last)
+
+
+sample_code(first = "sree", middle = "raja", last ="varma") 
+
+'''
+#                                               an error occured " TypeError: sample_code() got an unexpected keyword argument 'middle' "
+
+
+
+
+#                                                       in order to overcome such sittuations we use **kwargs** instead
+'''
+def sample_codes(**kwargs):
+    print ("hello "+kwargs["first"]+" "+kwargs["last"])             # simple approach                                      o/p hello sree varma
+    print ()                                                        # to create white space 
+
+    print ("hello",end=" ")                                         # replace the new line charactor with a space 
+    for key,value in kwargs.items():
+        print (value,end=" ")                                       # we only need to display values,                       o/p hello sree raja varam
+    print ()                                                        # to create white space 
+
+
+
+
+
+
+sample_codes(title= "Mr",first="sree",middle="raja",last="varma")
+'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# ----------------------------------------------------------------        str.format()      ----------------------------------------------------------------
+#                                              optional method that gives users more control when displaying output 
+
+
+
+
+'''
+
+# typical code writing 
+
+animal = "cow"
+item = "moon"
+
+print ("The "+animal+" jumped over the "+item)
+
+# now using str.format()
+# "  {} " are called 'format fields', act as a place holder 
+
+
+print ("The {} jumped over the {} ".format("cow","moon"))                       # insert as positional arguments  << direct assigning 
+print ("The {} jumped over the {} ".format(animal,item))                        # using variables 
+
+print ()                                                                        # creating white space 
+
+print ("The {0} jumped over the {1} ".format(animal,item))
+print ("The {1} jumped over the {0} ".format(animal,item))                      # positions has been altered 
+print ("The {0} jumped over the {0} ".format(animal,item))                      # positions has been altered 
+print ("The {1} jumped over the {1} ".format(animal,item))                      # positions has been altered 
+
+
+print ()                                                                        # creating white space 
+
+print ("The {item1} jumped over the {item2}".format(item1="cow", item2="moon")) # keyword arguments 
+print ("The {item2} jumped over the {item1}".format(item1="cow", item2="moon")) # keyword arguments 
+print ("The {item1} jumped over the {item1}".format(item1="cow", item2="moon")) # keyword arguments 
+print ("The {item2} jumped over the {item2}".format(item1="cow", item2="moon")) # keyword arguments 
+
+
+
+
+
+
+
+#                                                                   another way to print this                                                                   
+
+
+
+
+
+print ()                                                                        # creating white space                                              
+
+text = "The {} jumped over the {}"
+
+print (text.format(animal,item))
+
+
+
+# other use cases here
+# adding padding 
+name = "vijay"
+
+print ("hello my name is {}".format(name))
+print ("hello my name is {:10}. nice to meet you. ".format(name))               # to add some space after name, before the nice................................
+print ("hello my name is {:<10}. nice to meet you. ".format(name))              # aligned to left (default )
+print ("hello my name is {:>10}. nice to meet you. ".format(name))              # aligned to right (default)
+print ("hello my name is {:^10}. nice to meet you. ".format(name))              # aligned to center (default)
+
+
+
+
+
+
+
+#                                           to display a fixed number of digits after '.'
+number = 3.14159
+
+
+
+
+print ("The number pi is {:.2f}".format(number))                                # .'2' two positions, f >> floating point
+print ("The number pi is {:.3f}".format(number))                                # 3 positions 
+
+number = 1000
+print ("The number pi is {:,}".format(number))                                  # mark a comma after 3 positions
+print ("The number pi is {:b}".format(number))                                  # provide the binary o/p of the number
+print ("The number pi is {:o}".format(number))                                  # provide the octal out put 
+print ("The number pi is {:x}".format(number))                                  # hexadecimal o/p. x > lowercase, X > uppercase.
+print ("The number pi is {:e}".format(number))                                  # display with scientific notation e or EC
+
+'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#------------------------------------------------------------------------------import random ----------------------------------------------------------------
+#                                                                to generat some pseudo random numbers from
+
+
+
+
+
+
+'''
+import random
+
+x = random.randint(1,6)                                                         # create a random integer in b/w 1 & 6
+print (x)
+print ()                                                                        # creating white space                                              
+
+y = random.random()                                                             # create a random floating point number 
+
+print (y)
+print ()                                                                        # creating white space                                              
+
+
+# randomly choosing an item from the list 
+my_list = ["rock","paper","scissors"]
+print (random.choice(my_list))                                                  # print a random item from the list 
+print ()                                                                        # creating white space                                              
+
+
+
+# we have a collection of cards 
+card = ["A",2,3,4,5,6,7,8,9,"J","K","Q"]
+print ("the cards are ",card)
+random.shuffle(card)                                                            # randomly shuffles the card, we may not be able to predit it.
+print ("the shuffled cards are ",card )
+print ("the shuffled card is {} ".format(card))
+#print ("the shuffled card are {} ".format(random.shuffle(card)))               # some kind of logical error occured 
+
+'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#------------------------------------------------------------------------------exception----------------------------------------------------------------
+#                                                 events detected during execution that interupt the flow of the programm
+
+
+
+
+
+
+
+
+'''
+try:                                                      # we don't know what the user is going to input
+    numerator =int(input("Enter a number to divide : "))
+    denominator =int(input("Enter a number to be divided by : "))
+    result = numerator / denominator
+    #print (result) 
+
+
+
+
+#                                                           till this block every thing is as usual as always 
+#                                                       it is not a good practice to have a single exception block 
+
+
+except ZeroDivisionError as e:
+    print (" you can't divide by zero! idiot!")
+    print (e)
+
+except ValueError as e:
+    print ("Enter only numbers pls ")
+    print (e)
+except Exception as e:                          # this block will catch all the exception occured during the programming rather than interrupting it 
+    print ("something went wrong")
+    print(e)
+else:
+    print (result)
+finally:
+    # even if some errors occure we may have to perfom some exceptions, such as closing a file.
+    print(" this statge will always execuit")
+
+
+
+
+'''
+
