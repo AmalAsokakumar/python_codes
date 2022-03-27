@@ -1234,3 +1234,143 @@ finally:
 
 '''
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#--------------------------------------------------------------------------file mainpulation----------------------------------------------------------------
+#                                                   to access a file whic is resides in side out local host system 
+
+
+
+
+
+
+
+
+
+# basics of simple file manipulations 
+# i have basically created some files in my pc, in order to acces this file with python 
+
+
+
+
+'''
+
+from genericpath import isfile
+import os 
+
+
+def test_case(path):
+    if os.path.exists("/Users/amalasokakumar/Desktop/1.txt"):
+        print ("The location exist  ")
+        if os.path.isdir(path):                                             # checks whether this path exists 
+            print ("This is a directory" )
+        elif os.path.isfile(path):                                          # checks whether this is a file or not 
+            print (" This is a file ")
+    
+    else:
+        print ("doesn't exists")
+
+
+
+print()
+print ()
+print ("checking for location...... ")
+path  ="/Users/amalasokakumar/Desktop/folder"                               # this is a variable that can be used to store the path 
+test_case(path)                                                             # calling this function 
+print ()
+print ()
+path = "/Users/amalasokakumar/Desktop/1.txt"
+print ("checking for the file ...... ")
+test_case(path)
+print ()
+print ()
+
+,,,
+
+
+
+# i got this code from internet not part of the course till now, can just use it as referance.
+
+
+
+print ("this is a test programme ")
+def rename_files():
+     file_to_open = os.path.expanduser('/Users/amalasokakumar/Desktop/1.txt')
+     f = open(file_to_open)
+     print(f.read())
+
+rename_files()
+
+
+'''
+
+
+#                                                                              READING 
+
+
+# accessing a file 
+# my file is located in Desktop/folder/1.text
+
+
+
+'''
+ 
+with open('/Users/amalasokakumar/Desktop/folder/2.txt') as file: # we can either mention file name (if it is in the same directory ) or file path 
+    print (file.read())
+
+
+#print (file.closed)                                                 # to check whether the file is closed (o/p True) or not (False)
+
+
+
+
+
+#                                                           usually when we open a file we need to manuely close it 
+#                                                  while opening a file using  >>   "with " it will automatically closes the file 
+
+
+# while using this method there are chancess for the occurance of error.  hence we can use a ( try:  except blocks )
+
+
+try: 
+    with open('/Users/amalasokakumar/Desktop/folder/1.txt') as file:    # we can either mention file name (if it is in the same directory ) or file path 
+        print (file.read())                                             # reading the file 
+except FileNotFoundError as e:
+    # print(e)
+    print ("file not found")
+
+'''
+
+
+
+#                                                                            WRITING
+
+text = "yooo \n This is some test \n Have a good one!\n"
+with open ("/Users/amalasokakumar/Desktop/folder/1.txt",'w') as file:   # a copy of the file 2.txt is made on the > file ( as file )
+    file.write(text)
+
+print()
+print (file.closed)
+print ()
+
+with open ("/Users/amalasokakumar/Desktop/folder/1.txt",'r') as file:
+    print (file.read())
+
+
+print()
+print (file.closed)
+print ()
