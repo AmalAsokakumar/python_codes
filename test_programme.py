@@ -1319,7 +1319,7 @@ rename_files()
 '''
 
 
-#                                                                              READING 
+#                                                                              READING 'r'
 
 
 # accessing a file 
@@ -1357,8 +1357,9 @@ except FileNotFoundError as e:
 
 
 
-#                                                                            WRITING
+#                                                                            WRITING 'w' 'a'
 
+'''
 text = "yooo \n This is some test \n Have a good one!\n"
 with open ("/Users/amalasokakumar/Desktop/folder/1.txt",'w') as file:   # a copy of the file 2.txt is made on the > file ( as file )
     file.write(text)
@@ -1374,3 +1375,43 @@ with open ("/Users/amalasokakumar/Desktop/folder/1.txt",'r') as file:
 print()
 print (file.closed)
 print ()
+
+'''
+
+
+
+
+
+#                                                                           copy files
+
+'''
+
+import shutil 
+
+#                                              these 3 commands can be used in similar manner shown in bellow, but for different purpose
+# these functions can be used with 'import shutil '
+# copyfile()    < copies conternts of a file 
+# copy()        < copyfile() + permission mode + destination can be a directory 
+# copy2()       < copy() + copies metada (file's creation and modification times )
+
+
+
+shutil.copyfile('/Users/amalasokakumar/Desktop/folder/1.txt','/Users/amalasokakumar/Desktop/folder/2.txt') # (source, destination) and created a new test file called 2.txt 
+'''
+
+
+
+
+
+
+
+
+
+#                                                               moving files using python 
+
+
+import os                           # normaly included in python lib
+
+
+source = " "
+destination = " "
