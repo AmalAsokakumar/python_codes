@@ -27,7 +27,7 @@ def check_answer(answer,guess):
           return 0
 #----------------------------------------------------------------
 def display_score(correct_gusses, guess):
-     print ()
+     print("--------------------------------")
      print ("results ")
      for i in questions:
           print(questions.get(i),end="")
@@ -38,9 +38,19 @@ def display_score(correct_gusses, guess):
           print (i,end="")
      print()
      print ( "correct gussess {}".format(correct_gusses))
+
+     print ("score is :{}%".format((correct_gusses/len(questions)*100)))
+     #score = int((correct_gusses)/(len(questions))*100)
+     #print (score)
 #----------------------------------------------------------------
 def play_again():
-     pass
+     response = input("Do you want to play again? (Y/N) ").upper()
+      
+     if response == 'Y':
+           return True
+     else:
+          return False
+
 
 questions = {"who created python" : "A", \
      "what year was python created" : "B", \
@@ -54,4 +64,8 @@ options = [["A. Guido van Rossum","B. Elon Musk", "C. Bill Gates","D. Mark Zucke
           ["A. True","B. False","C. sometimes","D. what's earth? "]]
 
 
-new_game()
+
+while play_again():
+     new_game()  # function calling 
+
+print ("bye")
