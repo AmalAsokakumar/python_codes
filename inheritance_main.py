@@ -143,10 +143,11 @@ dog.bark()
 
 
 # ----------------------------------------------------------------      multiple inheritance ----------------------------------------------------------------
-#                                                 when a child class is derived from more than on parent class 
+#                                                     when a child class is derived from more than on parent class 
 
 
 
+'''
 class Prey:
      def flee(self):
           print ( "This animal is fleeing ")
@@ -174,3 +175,47 @@ rabbit.flee()
 fish.flee()
 fish.hunt()
 hwak.hunt()
+'''
+
+
+
+#                                                                    method overwriting 
+# this method will implement the one which is associated with it, insted of attaching/implementing the one which is inhereted from the parent class.
+
+
+'''
+class Animal:
+
+     def eat(self):
+          print ("this animal is eating ")
+
+class Rabbit(Animal) :
+     def eat(self):
+          print ("This rabbit is eating a carrot ")
+
+
+rabbit = Rabbit() # here we are creating an obiject
+rabbit.eat()
+'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# method chaining 
