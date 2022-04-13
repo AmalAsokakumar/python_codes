@@ -218,4 +218,199 @@ rabbit.eat()
 
 
 
-# method chaining 
+
+
+
+
+
+
+# ----------------------------------------------------------------    method chaining   ------------------------------------------------------------------------------------
+#                                                         calling multiple methods sequentially 
+#                                            each call perfoms an actinon on the same obiject and return self 
+
+
+
+'''
+class Car:
+
+
+     def turn_on(self):
+          print ("You start the engine")
+          return self                      # method chaning returns value 
+
+     def drive(self):
+          print ("You drive the car")
+          return self          
+     def brak(self):
+          print ("You step on the break")
+          return self                   
+     def stop(self):
+          print ("You stop the car")
+
+
+
+car = Car()
+
+car.turn_on()
+car.drive()
+
+# calling using method chaning 
+
+car.drive()\
+     .brak()\
+     .stop()                     # this is a typical example for method chaning ... ' \ ' <<< line continuation charactor 
+'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# ----------------------------------------------------------------------     super()     ----------------------------------------------------------------------
+#                                                 function used to give access to the method of a parent class.
+#                                                     return a temperory obiject of a parent class when used 
+
+
+
+
+
+
+
+
+'''
+class rectangle:                                       # parent class 
+     pass
+
+class Square(rectangle):                              # children class
+
+     def __init__(self, length, width):
+          self.length = length
+          self.width = width
+
+
+
+class Cube(rectangle):                                  # children class 
+
+     def __init__(self, length, width, height):
+          self.length = length
+          self.width = width
+          self.height = height
+
+
+square = Square( 3, 3)
+cube = Cube(3,3,3)
+
+'''
+
+'''
+in here we used same line of codes for both cube and square to get length and width 
+usuall we don't like to repeate the codes we just like to reuse them insted 
+hence we can place them in rectangular class and reuse them later 
+'''
+
+
+
+'''
+class Rectangle :
+     
+     def __init__(self, length, width ):
+          self.length = length
+          self.width = width
+
+
+class Square (Rectangle):
+
+     def __init__(self, length, width):
+        super().__init__(length, width)
+
+     def Area(self):
+          return self.length * self.width
+
+class Cube (Rectangle):
+     def __init__(self, length, width, height):
+          super().__init__( width, length)
+          self.height = height
+
+     def Volume (self):
+          return self.length * self.width * self.height
+
+cube = Cube(3,3,3)                      # here we are creating an obiject
+square = Square(2,4)
+
+
+print (cube.Volume())
+print (square.Area())
+'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# ------------------------------------------------------------------------------  abstract ------------------------------------------------------------------------------
+
+# prevents a user from creating an obiject of that class
+# compels a user to override abstract methods in a child class
+
+
+# abstract class = a class which contains one ore more abstract methods.
+# abstract method = a method that has a decleration but but does not have an implementation.
+
+
+
+
