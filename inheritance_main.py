@@ -230,6 +230,7 @@ rabbit.eat()
 
 
 
+
 '''
 class Car:
 
@@ -259,8 +260,10 @@ car.drive()
 car.drive()\
      .brak()\
      .stop()                     # this is a typical example for method chaning ... ' \ ' <<< line continuation charactor 
-'''
 
+car.turn_on().drive().brak().stop() # use sequentially ( in the order which is created)
+
+'''
 
 
 
@@ -412,5 +415,91 @@ print (square.Area())
 # abstract method = a method that has a decleration but but does not have an implementation.
 
 
+'''
+from abc import ABC, abstractmethod # abc >> abstract base class 
+
+class Vehicle(ABC):
+     @abstractmethod
+     def go(self):
+          pass
+     @abstractmethod
+     def stop(self):
+          pass
+class Car(Vehicle):
+     def go(self):
+          print ("You drive the car ")
+     def stop(self):
+          print ("Stop the car")
+
+class Motorcycle(Vehicle):
+     def go(self):
+          print ("You ride the motorcycclear ")
+     def stop(self):
+          print("Stop the motorcycle")
+car = Car()
+#vehicle = Vehicle() # by iclulding @abstractmethod we prevented vehicle from creating an obiject 
+motorcycle = Motorcycle()
+
+car.go()
+car.stop()
+motorcycle.go()
+motorcycle.stop()
+#vehicle.go()
+#car.stop().go() # not working 
+'''
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#                                                                      passing obiject as argument
+
+
+class Car:
+
+     color = None 
+
+class Motorcycle:
+     color =None 
+     
+
+def change_color(car,color):
+     car.color = color
+
+car_1 = Car()
+car_2 = Car()
+car_3 = Car()
+
+
+change_color(car_1,"red")
+change_color(car_2,"white")
+change_color(car_3,"blue")
+
+print(car_1.color)
+print(car_2.color)
+print(car_3.color)
