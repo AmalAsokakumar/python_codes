@@ -477,29 +477,307 @@ motorcycle.stop()
 
 
 
-#                                                                      passing obiject as argument
+#                                                               passing obiject as argument in python 
 
 
+'''
 class Car:
 
      color = None 
 
 class Motorcycle:
      color =None 
-     
 
-def change_color(car,color):
-     car.color = color
 
-car_1 = Car()
-car_2 = Car()
-car_3 = Car()
+def change_color(Vehicle,color):
+     Vehicle.color = color
+
+car_1 = Car()            # these are the newly created obijects 
+car_2 = Car()            # these are the newly created obijects 
+car_3 = Car()            # these are the newly created obijects 
+bike_1 = Motorcycle()    # these are the newly created obijects 
 
 
 change_color(car_1,"red")
 change_color(car_2,"white")
 change_color(car_3,"blue")
+change_color(bike_1,"black")
 
 print(car_1.color)
 print(car_2.color)
 print(car_3.color)
+print(bike_1.color)
+
+
+'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# -------------------------------------------------------------------       Duck typing      ----------------------------------------------------------------
+# concept where the class of an obiject is less important than the methods/attributes
+# class type is not checked if minimum method/attribute are present 
+# " if we walk like a duck, and it quacks like a duck, then it must be a duck"
+
+
+
+'''
+
+class Duck:
+     def walk(self):
+          print ("This duck is walking ")
+
+     def talk(self):
+          print ("This duck is qwuacking")
+
+class Chicken:
+     def walk(self):
+          print ("This chicken is walking")
+
+     def talk(self):
+          print ("This chicken is clucking")
+
+class Person:
+
+     def catch (self,duck): # here 'duck' act as a simple carrier to carry the date which is transfer to this fn by calling function.
+          duck.walk()       # actually the data inside this varibale can be "chicken,duck or anyhing else"
+          duck.talk()
+
+          print ("You caught the critter")
+
+
+
+duck = Duck()
+chicken = Chicken()
+person = Person()
+
+
+person.catch(duck) # o/p of executing this function is given bellow 
+
+"""This duck is walking 
+This duck is qwuacking
+You caught the critter"""
+
+
+person.catch(chicken)
+
+"""This chicken is walking
+This chicken is clucking
+You caught the critter"""
+
+
+
+'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#    ----------------------------------------------------------------   walurus operator  ' := ' ----------------------------------------------------------------
+#    new to python 3.8
+#   " assignment expression " aka walurus operator 
+#    assigns values to variables as part of a larger expression 
+
+
+'''
+happy = True
+print (happy)
+
+# lets compain above expression using walurus operator 
+
+print (happy := True)  # here we are assigning value to a variable, as part of a larger expression 
+print (happy)
+
+
+
+
+
+
+
+"""
+foods = list()
+while True:
+     food = input("What food do you like?:   ")
+     if food == "quit":
+          break
+     foods.append(food)
+
+
+"""
+
+# lets write this code using walurus operator
+
+
+foods = list()
+while food := input("What food do you like?: ") != "quit":
+     foods.append(food)
+
+'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#                                                            adding a function to a variable 
+#04:31/12:00
+
+
+
+
+
+'''
+def hello():
+     print ("Hello")
+
+
+hello()
+print(hello) # will print the memory address of the hello function <. hello(hello)
+
+hi = hello # this will also shows the address of the hello function <. hi(hello)
+print(hi)
+
+
+hi()  # if we execuit this function this will perfom hello function and prints "Hello"
+
+# we can execui this hello function using hi() or hello()
+# another example would be 
+
+
+say = print # here we are assigning the memory address of 'print' fn. to the 'say' variable and
+
+say ("WOW here i can print without using print fn directly ") # these are typical examples for adding function to a variable
+
+'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# ----------------------------------------------------------------     High order function      ----------------------------------------------------------------
+#                                                a function that either 
+#                                                                    1. accept a function as argument 
+#                                                                    2. returns a function 
+#                                                      (in python, functions are also treated as obijects )
+
