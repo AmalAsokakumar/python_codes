@@ -781,3 +781,340 @@ say ("WOW here i can print without using print fn directly ") # these are typica
 #                                                                    2. returns a function 
 #                                                      (in python, functions are also treated as obijects )
 
+
+
+# eg 1  accept a function as argument
+'''
+
+def loud(text):
+     return text.upper()
+
+def quiet (text):
+     return text.lower()
+
+def hello(function):
+     text = function("hello")
+     print (text)
+
+hello(loud)
+print ("\n")
+hello(quiet)
+
+
+
+# eg 2  returns a function
+
+
+def divisor(x):               #1
+     def divident(y):         #2
+          return y/x          #3
+     return divident          #4             returning the address of a fn as an argument
+
+
+divide = divisor(2)           #5             storing memory address of function 
+print (divide(10))            #6 
+
+
+"""
+in here we execute the programmm 
+#5 will execute and assign 'x' as '2' 
+#2 and #3 won't be executing since it isn't called 
+#4 returns address location of divident function 
+
+
+when executing #6 'divide' fn.  which has the address of divident function, which is being called and passed an argument '10' to it 
+#2 will execuit, in here value of 'x' is set during previous execution (#5), now we provided the y argument. The result of execution will be returned by "return fn."
+and will be printed.
+
+
+ """
+
+
+
+'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# -----------------------------------------------------------------        lambda function     -------------------------------------------------------------------------
+#                                                     function writtern in 1 line using lambda keyword
+#                                               accepts any number of arguments, but only has one expression.
+#                                                                                                             (think of it as a shortcut )
+#                                                                                                             (useful if needed for a short peroid of time, throw-away)
+#                                                                                                              mostly used we we need to uses a function once, not repetely 
+# lamada parameter:expression
+
+
+'''
+def double(x):
+     return x * 2
+
+print (double(5))
+
+
+# as a lambda function 
+double_1 = lambda x:x*2
+print (double_1(10))
+
+# have 2 number to multiply
+multiply = lambda x,y:x*y 
+print ("the product is : "+str(multiply (8,5))) # type cast to convert the return data type as a string for string concatenation.
+
+#lets add 3 numbers together
+
+
+add = lambda x,y,z:x+y+z
+print (x:=10,y:=15,z:=12,"\nThe sum of three numbers are {} + {} + {} = {}".format(x,y,z,add(x,y,z)))
+
+print (x:=3,y:=2,z:=4,"\nThe product of {} + {} + {} = {}".format(x,y,z,lambda x,y,z:x*y*z))
+sum = lambda x,y,z:x*y*z
+print (x:=3,y:=2,z:=4,"\nThe product of {} + {} + {} = {}".format(x,y,z,sum(x,y,z)))
+
+full_name = lambda first_name,last_name: first_name + " " + last_name
+print (full_name("varun","sharma"))
+
+# a simple lambda function to check age of a person in
+
+age_check = lambda age:True if age >= 18 else False
+print (age_check (int(input("Enter your age : "))))  # int < type converter, default input is considered as a string value 
+
+
+'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#----------------------------------------------------------------                sort()                   ----------------------------------------------------------------
+#                                                                   sort () method  >> used with list 
+#                                                                sort () function >> used with iterables
+
+
+
+'''
+
+# here is a list called students []
+from turtle import st
+
+
+students = ["Squidward","sandy","patrick","Spongeboob","Mr. Krabs"]
+
+students.sort() # we can provide two arguments in this function.   >>  "" reverse = true ""  and "" key """
+for i in students:
+     print (i)
+print ("\n")
+
+
+# sorted in reverse order.
+students.sort(reverse=True)  # it only going to work with list not with 'tuple ()',  'list []'
+for i in students:
+     print(i)                # here it will print in reverse order.
+print ("\n")
+
+
+
+
+# here we are using a tuple 
+students = ("Squidward","sandy","patrick","Spongeboob","Mr. Krabs")
+# in here sorted student is a list[]
+sorted_students = sorted(students) # << accepts tuples as an arguments...  or 'sorted' convert it as an argument
+for i in sorted_students:
+     print (i)
+print ("\n")
+
+
+
+
+# for reverse order 
+sorted_Students = sorted(students,reverse=True)
+for i in sorted_Students:
+     print (i)
+print ("\n")
+
+
+
+
+
+
+
+
+#                                                                               part 2
+# now here we have a list of tuples of students
+# here we are going to use 'key' keyword argument 
+
+
+students = [("SquidWard","F",60),
+            ("Sandy","A",33),
+            ("Patrick","D",37),
+            ("Spongebob","C",39),
+            ("Mr. Khan","S",26)]
+
+students.sort()                    # here the list is sorted based on first coloumn
+
+for i in students:
+     print (i)
+print ("\n")
+
+
+
+# in order to sort it based on other coloum we use " key " kewword argument
+"""
+we set key equlas to a function that is going to return the index of the that specific coloumn that we have 
+"""
+
+grade = lambda grades:grades[1]                                 # indexing start from zero, coloumn 2's index "1", and for coloumn '3' is "2"
+students.sort(key=grade)                                        # grade is going to be a function obiject via loambda functions
+for i in students:
+     print (i)
+print ("\n")
+
+
+
+students.sort(key=grade,reverse=True)                           # to print in reverse orde 
+for i in students:
+     print (i)
+print ("\n")
+
+
+
+#                                       similarly we can also change it according to the age of the students
+print ("\n")
+
+
+age = lambda age:age[2]
+students.sort(key=age)
+
+for i in students:
+     print (i)
+
+students.sort(key=age,reverse=True)                              # in reverse order 
+for i in students:
+     print (i)
+
+'''
+
+
+
+
+
+
+
+#                                                                suppose we have a tuples of tuples 
+
+
+from audioop import reverse
+
+
+students = (("SquidWard","F",60),
+            ("Sandy","A",33),
+            ("Patrick","D",37),
+            ("Spongebob","C",39),
+            ("Mr. Khan","S",26))
+
+age = lambda ages:ages[2]
+sorted_students = sorted(students,key=age)  
+
+for i in sorted_students:
+     print (i)
+print ("\n")
+
+
+sorted_students = sorted(students,key= age,reverse=True) #                      sorted in reverse order 
+for i in sorted_students:
+     print (i)
+
+# 4:53/12:00
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
