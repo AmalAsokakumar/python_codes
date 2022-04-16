@@ -66,3 +66,41 @@ print ("passed students "+ str(passed_students))
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#   ----------------------------------------------------------------   Directory Comprehension  ----------------------------------------------------
+#                              create a dictionaries using an expression can replace for loops and certain lambda functions
+
+# dictonary ={key: expression      for (key,value) in iterable }
+#dictonary = {key: expression      for (key,value) in iterable if condition}
+#dictonary = {key: (if/else)       for (key,value) in iterable }
+#dictonary = {key: function(value) for (key,value) in iterable}
+
+
+
+# temperatuer in few cities are list 
+
+cities_in_f = {"New York" : 32, "Bostan" : 75, "Los Angels": 100, "chicago": 50}
+
+
+
+
+
