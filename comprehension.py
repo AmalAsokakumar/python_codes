@@ -98,6 +98,7 @@ print ("passed students "+ str(passed_students))
 
 # temperatuer in few cities are list 
 
+'''
 cities_in_f = {"New York" : 33, "Bostan" : 75, "Los Angels": 100, "chicago": 50}
 
 
@@ -132,3 +133,150 @@ def check_temp (value):
 new_cities = { key: check_temp(value) for (key,value) in cities_in_f.items()}
 
 print (new_cities)
+'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#   ----------------------------------------------------------------      zip (*iterable)     ----------------------------------------------------------------
+#                                             aggregate elements form two or more iterables (list, tupiles, set, etc)
+#                                            creates a zip obiject with paired elements stored in tuples for each element 
+
+
+# here i have 2 set of iterable list
+'''
+
+
+
+user_name = ["Dude", "Bro", "Mister"]
+password = ("pAssword", "@bc123", "gues!")   # its a tuple 
+
+log_in_dates = ["1/1/2022","1/2/2022","1/3/2022"]
+
+
+
+# create a zip obiject 
+"""
+users = zip (user_name, password)
+
+for i in users:
+     print (i)
+
+     
+print (type(users)) # print data type 
+users =list (users) # to convert is a list 
+print (type (users))
+"""
+
+
+
+
+
+
+# to convert the list as a dictonary key:value pair 
+"""
+users = dict(zip(user_name, password))
+
+for key,value in users.items():
+     print (key+" : "+value)
+
+"""
+
+
+
+
+# create a list of more than two iterable 
+
+users = zip(user_name, password, log_in_dates)
+
+for i in users:
+     print (i)
+
+
+
+'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
