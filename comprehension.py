@@ -98,9 +98,37 @@ print ("passed students "+ str(passed_students))
 
 # temperatuer in few cities are list 
 
-cities_in_f = {"New York" : 32, "Bostan" : 75, "Los Angels": 100, "chicago": 50}
+cities_in_f = {"New York" : 33, "Bostan" : 75, "Los Angels": 100, "chicago": 50}
 
 
+# temperature in clecious temperature
 
+#dictonary = {key: function(value) for (key,value) in iterable}
+cites_in_c = {key: round(((value-32)*(5/9))) for (key,value) in cities_in_f.items()}  # here .items() is used because dictionary 
+print (cites_in_c)
 
+#05:13/12:00
+#dictonary = {key: expression      for (key,value) in iterable if condition}
+weather = {"New York":"snowing","Bostan":"sunney","Los Angeles":"sunney","Chicago":"cloudy"}
+sunney_weather = {key: value for(key,value) in weather.items() if value == "sunney"}         # dont forget to include .item()
 
+print (sunney_weather)
+
+# discription a bout each cities temperature sensor
+
+#dictonary = {key: (if/else)       for (key,value) in iterable }
+dis_cities = {key: "Warm" if value > 40 else "Cold" for (key,value) in cities_in_f.items()}
+print (dis_cities)
+
+#dictonary = {key: function(value) for (key,value) in iterable}
+def check_temp (value):
+     if value >= 70:
+          return "Hot"
+     elif 69>= value >= 40:
+          return "Warm"
+     else:
+          return "Cold"
+
+new_cities = { key: check_temp(value) for (key,value) in cities_in_f.items()}
+
+print (new_cities)
