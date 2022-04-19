@@ -89,3 +89,187 @@ shutil.rmtree ("path")                                  #to remove directort alo
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# ----------------------------------------------------------------     multithreading ------------------------------------------------------------------------------------
+
+# 5:39/12:00:
+#                                                                    thread >>>
+#                                                                               a flow of execution, like a seperate order of instructions. 
+#                                                                               However each thread takes a turn running to achieve concurency. 
+#                                                                               GIL >>> (global interceptor lock) 
+#                                                                               allows only one thread to hold the control of the python interpetor at any one time 
+
+#                                                                   cpu bound >>
+#                                                                               program/task spends most of it's time waiting for internal events (cpu intensive) 
+#                                                                               use multi processing 
+
+
+#                                                                   io bound  >>
+#                                                                               program/task spends most of it's time waiting for external events 
+#                                                                               (user input, web scraping) use multithreading 
+
+'''
+import threading
+import time 
+
+
+# print (time.ctime(time.time())) # print todays time and date 
+# to count number of threads that are currentl running in background when we run the programm, we have one that is in chargeof 
+
+
+# print (threading.active_count())
+# print (threading.enumerate()) 
+
+
+# Return a list of all Thread objects currently alive. The list includes daemonic threads, dummy thread objects created by current_thread(), and the main thread. It excludes terminated threads and threads that have not yet been started.
+
+#  multi threading can be used to programme quiz game
+#   in which a thread is incharge for the uset input while another thread is incharge for starting the countdown process 
+#   hence we will have 2 threads running concurrently, if we have n number of threads they can all run concurrently they all takes turns while one of them is idel.
+
+
+
+
+
+def eat_breakfast():
+    time.sleep(3)
+    print ("you eat breakfast ")
+
+
+def drink_coffey():
+    time.sleep(4)
+    print ("You drink coffey")
+
+def study ():
+    time.sleep(5)
+    print ("You finish study ")
+
+
+# lets call all this functions using main thread
+""" 
+eat_breakfast()
+drink_coffey()
+study()
+"""
+# in here these 3 tasks are completed in sequential manner, its second task begins after the completion of first task and so on
+# here we have a single thread incharge of the functions 
+
+
+
+# now we can as 3 threads in which each one is incharge of a single fn and the main programe running in background that will complete  the programme by main thread 
+
+# multi threading 
+x = threading.Thread(target = eat_breakfast, args = ())
+x.start()
+
+y = threading.Thread(target = drink_coffey, args = ())
+y.start()
+
+z = threading.Thread(target = study, args = ())
+
+"""
+z.start()
+
+
+x.join()  # now main thread have to wait till x thread is complete to continue (main threads) it's instructions sets 
+
+y.join()
+z.join()
+"""
+# now the main thread have to waite till all the threads to synchronize and join then only can it move on with the rest of the it's own instruction set 
+print (threading.active_count())
+print (threading.enumerate())
+print (time.perf_counter())  # how much time the main thread using to complete the main program
+'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# time : 5:53/12:00
+# 
+# 
+# 
+# python 
+# deamon thread 
